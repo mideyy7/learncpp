@@ -25,5 +25,7 @@ int main()
 
     [[maybe_unused]] double gravity = 9.8;
 
+    std::cout << sizeof(int) << '\n';
+
     return 0;
 }
