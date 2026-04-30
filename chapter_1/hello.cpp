@@ -1,5 +1,13 @@
 #include <iostream>
 
+void double_number (int num)
+{
+    std::cout << "Enter your number: ";
+    int user_input{};
+    std::cin >> user_input;
+    std::cout << user_input * 2 << '\n';
+}
+
 int main()
 {
     #if 0
@@ -26,6 +34,9 @@ int main()
     [[maybe_unused]] double gravity = 9.8;
 
     std::cout << sizeof(int) << '\n';
+    double_number (50);
+
 
     return 0;
+
 }
