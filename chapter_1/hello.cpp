@@ -16,6 +16,10 @@ int main()
     2. Copy using =
     3. direct unsing ()
     4. value using {} and leaving it empty
+
+
+    << insertion operator 
+    >> extraction operator
     
     */
 
