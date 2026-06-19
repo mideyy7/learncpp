@@ -16,8 +16,8 @@ ITERATORS
 begin()
 end()
 prev()
-next()
-advance()
+next() returns a new iterator
+advance() modifies the passed iterator
 
 
 */
@@ -27,15 +27,32 @@ advance()
 
 using namespace std;
 
-int main() {
-    vector<int> v = {10, 20, 30, 40, 50};
-    vector<int>::iterator i = v.begin();
-    cout << (*i) << " ";
-    i++;
-    cout << (*i) << " ";
-    i = v.end();
-    i--;
-    cout << (*i) << " ";
-    cout << endl;
-    return 0;
+vector<char> solve(int arr1[], char arr2[], int n) {
+    vector<pair<int,char>> temp;
+    for (int i = 0; i < n; i++) {
+        temp.push_back({arr1[i], arr2[i]});
+    }
+    sort(temp.begin(), temp.end());
+    vector<char> result(n);
+    for (int i = 0; i < n; i++) {
+        result[i] = temp[i].second;
+    }
+    return result;
+
 }
+
+int main() {
+    // vector<int> v = {10, 20, 30, 40, 50};
+    // vector<int>::iterator i = v.begin();
+    // cout << (*i) << " ";
+    // i++;
+    // cout << (*i) << " ";
+    // i = v.end();
+    // i--;
+    // cout << (*i) << " ";
+    // cout << endl;
+    // return 0;
+}
+
+
+
