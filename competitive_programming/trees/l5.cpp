@@ -78,3 +78,22 @@ std::vector<int> in_order(TreeNode* node)
     std::reverse(result.begin(), result.end());
     return result;
  }
+
+
+ /*
+    Combining all traversals in one loop
+    pseudo:
+
+    if num == 1:
+        pre.add(node.value)
+        num++
+        push left
+    elif num == 2:
+        in.add(node.value)
+        num++
+        push right
+    else:
+        post.add(node.value)
+ 
+ 
+ */
