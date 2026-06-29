@@ -31,3 +31,12 @@ std::vector<int> get_path(TreeNode* root, int value) {
     solve(root, value, result);
     return result;
 }
+
+TreeNode* lowest_common_ancestor(TreeNode* root, TreeNode* a, TreeNode* b) {
+    if (!root || root == a || root == b) return root;
+    TreeNode* left = lowest_common_ancestor(root->left, a, b);
+    TreeNode* right = lowest_common_ancestor(root->right, a, b);
+    if (!left) return right;
+    if (!right) return left;
+    return root;
+}
