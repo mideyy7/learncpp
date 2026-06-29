@@ -44,21 +44,3 @@ TreeNode* lowest_common_ancestor(TreeNode* root, TreeNode* a, TreeNode* b) {
     if (!right) return left;
     return root;
 }
-
-int max_width(TreeNode* root) {
-    int right = INT_MAX;
-    int left = INT_MIN;
-    std::queue<std::pair<TreeNode* ,int>> q;
-    if (!root) return 0;
-    q.push({root, 0});
-    while (!q.empty()) {
-        auto [node, position] = q.front(); q.pop();
-        int right = std::min(right, position);
-        int left = std::max(left, position);
-        if (node->left) q.push({node->left, position + 1});
-        if (node->right) q.push({node->right, position - 1});
-    }
-    return left - right;
-    
-}
-
