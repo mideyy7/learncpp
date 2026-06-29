@@ -32,6 +32,8 @@ std::vector<int> get_path(TreeNode* root, int value) {
     return result;
 }
 
+
+// revise this one and know what to do if both/one of a and b are absent in the tree
 TreeNode* lowest_common_ancestor(TreeNode* root, TreeNode* a, TreeNode* b) {
     if (!root || root == a || root == b) return root;
     TreeNode* left = lowest_common_ancestor(root->left, a, b);
@@ -40,3 +42,4 @@ TreeNode* lowest_common_ancestor(TreeNode* root, TreeNode* a, TreeNode* b) {
     if (!right) return left;
     return root;
 }
+
