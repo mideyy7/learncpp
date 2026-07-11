@@ -1,3 +1,7 @@
+#include <vector>
+#include <string>
+#include <unordered_map>
+
 class Solution {
 public:
     bool mergeTriplets(vector<vector<int>>& triplets, vector<int>& target) {
