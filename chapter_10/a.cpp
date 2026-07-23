@@ -26,24 +26,24 @@ Ambiguous matches happens when 2 results to the same function....compile error
 Fix: explicitly define the signature in the function.. cast the argument to match what you want to call
 
 
-*/
+// */
 
-#include <iostream>
-void printInt(int x) {
-    std::cout << x << "\n";
-}
+// #include <iostream>
+// void printInt(int x) {
+//     std::cout << x << "\n";
+// }
 
 
-// tO DELETE A FUNCTION
-template<typename T>
-void printInt(T c) = delete;
+// // tO DELETE A FUNCTION
+// template<typename T>
+// void printInt(T c) = delete;
 
-int main() {    
-    printInt(5);
-    // printInt(5.0);
-    // printInt('a');
-    return 0;
-}
+// int main() {    
+//     printInt(5);
+//     // printInt(5.0);
+//     // printInt('a');
+//     return 0;
+// }
 
 
 /*
@@ -65,3 +65,12 @@ tHE DIFFERENCE OF USING A FUNCTION TEMLATE ->  the primary difference is the add
 
 
 */
+
+#include <iostream>
+
+int main()
+{
+    std::cout << std::boolalpha << (-3 < 5u) << '\n';
+
+    return 0;
+}

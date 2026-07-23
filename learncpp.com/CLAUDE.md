@@ -15,16 +15,17 @@ The user pastes the content of one learncpp.com section into the chat.
 
 ## What the summary must contain
 
-- **Key points** — the core concepts, condensed. Bullet points, not a paraphrase of the page's prose.
-- **C++ internals** — how the compiler/runtime actually implements the behavior (memory layout, storage duration, calling convention, vtable mechanics, etc.) whenever the section touches on something with an underlying mechanism, even if learncpp.com itself doesn't go that deep.
+- **Key points** — the core concepts, condensed. Bullet points, not a paraphrase of the page's prose. Each bullet should say something the page's prose implies but doesn't state outright — a consequence, a rule derived from two facts combined, a "this is why X works" — not just a shorter rewording of a sentence that was already a bullet-length fact.
+- **C++ internals** — how the compiler/runtime actually implements the behavior (memory layout, storage duration, calling convention, vtable mechanics, bit patterns, etc.) whenever the section touches on something with an underlying mechanism, even if learncpp.com itself doesn't go that deep. Trace the actual mechanism (e.g. show the modulo arithmetic or the bit pattern, don't just assert "it wraps around").
 - **Performance implications** — anything relevant to cost: copies vs. moves, allocations, indirection, cache behavior.
-- **Undefined behavior / gotchas** — explicitly flag UB, implementation-defined behavior, and common mistakes. This is the highest-value section for interview prep; don't bury it.
-- **Interview angle** — when the topic plausibly comes up in a quant or LLD interview, note the likely framing of the question and what a sharp answer looks like.
+- **Undefined behavior / gotchas** — explicitly flag UB, implementation-defined behavior, and common mistakes. This is the highest-value section for interview prep; don't bury it. **Every gotcha must be backed by a minimal, runnable code snippet that demonstrates it** (a few lines, with the surprising output as a comment) — a claim like "signed/unsigned comparison can silently invert" is not done until there's a snippet showing the exact comparison and its actual output.
+- **Interview angle** — one or more concrete `Q:` / `A:` pairs, phrased the way an interviewer would actually ask it (not "know that X can happen"), followed by a model answer that reasons through the mechanism, not just a one-line "the answer is X." Prefer questions built around a code snippet the candidate has to trace through. Generic advice like "be ready to explain the rule" is not acceptable on its own — show the question and the reasoned answer.
 
-Omit any of the above sections that genuinely don't apply to a given topic rather than padding them out.
+Omit any of the above sections that genuinely don't apply to a given topic rather than padding them out. When in doubt about whether a section applies, err toward including it with a concrete example rather than a vague one-liner — a section with real depth is better than a section that's technically present but generic.
 
 ## Style
 
-- Terse, bulleted. No restating the obvious ("a variable is a name for a value") — assume competence and focus on what's easy to get wrong.
-- Code snippets only when they clarify something prose can't.
+- Terse bullets, but terse means "no wasted words," not "shallow." A bullet can — and for gotchas/interview angle, should — be followed by a short code block; that's not padding.
+- No restating the obvious ("a variable is a name for a value") — assume competence and focus on what's easy to get wrong.
+- Every UB/gotcha claim and every interview-angle claim needs a concrete example (code snippet, or worked-through numbers) attached — asserting a fact without demonstrating it is treated as incomplete, not concise.
 - Use `##`/`###` headers matching the section's own subheadings when the section is long enough to warrant it; otherwise keep it flat.
